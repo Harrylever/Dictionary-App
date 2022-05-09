@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_3.4.1/css/bootstrap.min.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_3.4.1/css/style.css') }}">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstr`ap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+
+    {% block title %}{% endblock %}
+</head>
+<body>
+
+    <!-- <div class="container"> -->
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-inverse monospace">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}">Ustacky</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li {% block home_active %}{% endblock %} ><a href="{{ url_for('index') }}">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li {% block dashboard_active %}{% endblock %} ><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <!-- <li><a href="dashboard">Dashboard</a></li> -->
+                </ul>
+            </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+  
+        <div class="container-fluid">
+            {% block content %}{% endblock %}
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer monospace">
+            <div class="container">
+                <p>&copy;2021 - Ustacky. All Rights Reserved.</p>
+            </div>
+        </footer>    
+    <!-- </div> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+    <!-- <script src="{{ url_for('static', filename='bootstrap_3.4.1/js/script.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='bootstrap_3.4.1/js/bootstrap.min.js') }}"></script>
+</body>
+</html>
